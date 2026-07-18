@@ -36,55 +36,58 @@ img {
 .hero {
   position: relative;
   width: 100%;
-  height: clamp(340px, 55vw, 640px);
+  /* Figma: 119px banner + 982px photo = 1101px tall at 1728px wide (63.7%) */
+  height: clamp(380px, 63.7vw, 1101px);
   overflow: hidden;
   background: var(--black);
 }
 
 .hero__bg {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 8%;
+  /* 119 / 1101 */
+  height: 10.81%;
   object-fit: cover;
   object-position: center top;
 }
 
 .hero__side {
   position: absolute;
-  inset: 0;
+  /* stacked directly below .hero__bg, not overlapping it */
+  top: 10.81%;
+  left: 0;
   width: 100%;
-  height: 100%;
+  /* 982 / 1101 */
+  height: 89.19%;
   overflow: hidden;
 }
 
-/* Figma places this photo in a portrait frame rotated -90deg with no
-   object-fit override, which stretches (non-uniformly scales) the
-   source rather than cropping it. The source file here is pre-rotated
-   -90deg (see assets/hero-main-rotated.jpg) so a plain stretch-fill
-   reproduces the same distorted look without needing a live CSS
-   rotation + container-query sizing trick. */
 .hero__side-img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
+  object-position: center;
 }
 
+/* Matches Figma's linear-gradient(181deg, transparent 3.6%, white 96.4%)
+   fading the photo into the white page background beneath the hero. */
 .hero__gradient {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 55%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.6) 100%);
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 3.6%, rgba(255, 255, 255, 1) 96.4%);
   pointer-events: none;
 }
 
 .hero__caption {
   position: absolute;
   left: 50%;
-  bottom: 6%;
-  transform: translateX(-50%);
+  top: 58%;
+  transform: translate(-50%, -50%);
   width: min(90%, 700px);
   display: flex;
   flex-direction: column;
@@ -137,7 +140,8 @@ img {
 /* ---------- Foods section ---------- */
 
 .foods {
-  padding: clamp(60px, 12vw, 200px) clamp(24px, 8vw, 350px) clamp(60px, 12vw, 220px);
+  /* Figma: px-[350px] at 1728px canvas width = 20.25vw */
+  padding: clamp(60px, 12vw, 200px) clamp(24px, 20.25vw, 350px) clamp(60px, 12vw, 220px);
   max-width: 1728px;
   margin: 0 auto;
 }
@@ -197,7 +201,8 @@ img {
 .bio {
   background: var(--black);
   color: var(--white);
-  padding: clamp(60px, 12vw, 200px) clamp(24px, 8vw, 351px);
+  /* Figma: pl-[352px] / pr-[351px] at 1728px canvas width = ~20.3vw */
+  padding: clamp(60px, 12vw, 200px) clamp(24px, 20.3vw, 351px);
 }
 
 .bio__inner {
