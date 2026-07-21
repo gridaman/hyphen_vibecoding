@@ -1,12 +1,16 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500;700&display=swap');
+
+/* Figma specifies "Gustavo trial" (Lift Type), a licensed geometric
+   sans not freely embeddable. Jost is used as the closest free
+   substitute: also geometric/wide with the same Futura-like character. */
 
 :root {
-  --black: #0a0a0a;
+  --black: #000000;
   --white: #ffffff;
-  --accent-1: #8cfff9;
-  --accent-2: #6cfff8;
-  --accent-3: #92fffa;
+  --gray-900: #1e2124;
+  --gray-950: #131416;
+  --blue: #659bf6;
 }
 
 * {
@@ -97,7 +101,7 @@ img {
 }
 
 .hero__eyebrow {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Jost', sans-serif;
   font-weight: 500;
   font-size: clamp(14px, 1.6vw, 24px);
   letter-spacing: 0.02em;
@@ -105,8 +109,8 @@ img {
 }
 
 .hero__name {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 900;
+  font-family: 'Jost', sans-serif;
+  font-weight: 700;
   font-size: clamp(36px, 7vw, 96px);
   line-height: 1.1;
   letter-spacing: -0.01em;
@@ -127,8 +131,8 @@ img {
 }
 
 .section-title {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 900;
+  font-family: 'Jost', sans-serif;
+  font-weight: 700;
   font-size: clamp(28px, 4vw, 48px);
   color: var(--black);
 }
@@ -180,7 +184,7 @@ img {
 }
 
 .btn {
-  background: var(--black);
+  background: var(--gray-900);
   color: var(--white);
   border: none;
   cursor: pointer;
@@ -199,7 +203,7 @@ img {
 /* ---------- Biography section ---------- */
 
 .bio {
-  background: var(--black);
+  background: var(--gray-950);
   color: var(--white);
   /* Figma: pl-[352px] / pr-[351px] at 1728px canvas width = ~20.3vw */
   padding: clamp(60px, 12vw, 200px) clamp(24px, 20.3vw, 351px);
@@ -251,9 +255,9 @@ img {
   line-height: 1.8;
 }
 
-.accent--1 { color: var(--accent-1); }
-.accent--2 { color: var(--accent-2); }
-.accent--3 { color: var(--accent-3); }
+.accent {
+  color: var(--blue);
+}
 
 .bio__photo {
   flex: 0 1 377px;
